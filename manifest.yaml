@@ -1,0 +1,24 @@
+apiVersion: urcaps/v1.0
+metadata:
+  vendorID: universal-robots
+  urcapID: toolcommunicationinterface
+  version: v1.3
+  vendorName: Universal Robots
+  urcapName: Tool Communicator Interface (TCI)
+  contactInfo: Energivej 25, 5260 Odense S, Denmark
+  description: Tool Communication Interface (TCI)
+  startup: auto
+  copyright: Copyright (c) 2009-2023 Universal Robots. All rights reserved.
+  licenseType: Sample license
+artifacts:
+  containers:  
+  - name: daemon-py
+    image: daemon-py:1.0
+    ingress:
+      - name: xmlrpc
+        port: 40405
+        protocol: http
+        proxyUrl: /
+  osgiBundles:
+  - name: polyscope-ui
+    bundle: polyscope-ui-1.0-SNAPSHOT.jar
